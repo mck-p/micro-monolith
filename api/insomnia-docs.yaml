@@ -1,0 +1,117 @@
+_type: export
+__export_format: 4
+__export_date: 2021-08-28T14:54:26.840Z
+__export_source: insomnia.desktop.app:v2021.5.0
+resources:
+  - _id: req_2decb95dd85a496ebd503b130c3d0e06
+    parentId: fld_69249335a545442fb5bdda6a1ac271ae
+    modified: 1630162425040
+    created: 1630161502322
+    url: "{{ _.db_url }}/migrate"
+    name: Migrate
+    description: |-
+      When called, Migrates the database to the latets schemas
+
+      ### Requiers
+
+      - Authentication
+        - Overlord only
+    method: POST
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{{ _.overlord_token }}"
+      disabled: false
+    metaSortKey: -1630161502322
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_69249335a545442fb5bdda6a1ac271ae
+    parentId: wrk_c1fb266396d34bf6bdf4ca762db574c9
+    modified: 1630161494597
+    created: 1630161471017
+    name: Database
+    description: ""
+    environment:
+      db_url: "{{ _.url }}/database"
+    environmentPropertyOrder:
+      "&":
+        - db_url
+    metaSortKey: -1630161471017
+    _type: request_group
+  - _id: wrk_c1fb266396d34bf6bdf4ca762db574c9
+    parentId: null
+    modified: 1630161426336
+    created: 1630161426336
+    name: API
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_5e6fba9c28ae44749afcddd1e0bb0578
+    parentId: fld_69249335a545442fb5bdda6a1ac271ae
+    modified: 1630162428448
+    created: 1630162373153
+    url: "{{ _.db_url }}/rollback"
+    name: Rollback
+    description: |-
+      When called, Migrates the database to the latets schemas
+
+      ### Requiers
+
+      - Authentication
+        - Overlord only
+    method: POST
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{{ _.overlord_token }}"
+      disabled: false
+    metaSortKey: -1627096223215
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_0bd829dbaff145f03097e78c1add58084788b3e5
+    parentId: wrk_c1fb266396d34bf6bdf4ca762db574c9
+    modified: 1630162403272
+    created: 1630161426342
+    name: Base Environment
+    data:
+      url: http://localhost:8080/api
+      overlord_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.7jEdG0VecpQQFdfFt5FwqkRlfNrnpGw5NjRUWgMDy8U
+    dataPropertyOrder:
+      "&":
+        - url
+        - overlord_token
+    color: null
+    isPrivate: false
+    metaSortKey: 1630161426342
+    _type: environment
+  - _id: jar_0bd829dbaff145f03097e78c1add58084788b3e5
+    parentId: wrk_c1fb266396d34bf6bdf4ca762db574c9
+    modified: 1630161426344
+    created: 1630161426344
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_cfc1dad06bf84abe9a1c3df16f7a01f1
+    parentId: wrk_c1fb266396d34bf6bdf4ca762db574c9
+    modified: 1630161426338
+    created: 1630161426338
+    fileName: API
+    contents: ""
+    contentType: yaml
+    _type: api_spec
