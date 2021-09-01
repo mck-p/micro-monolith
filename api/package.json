@@ -25,6 +25,7 @@
     "@types/node": "16.7.4",
     "@types/pino": "6.3.11",
     "dotenv-flow": "3.2.0",
+    "jsonwebtoken": "8.5.1",
     "nodemon": "2.0.12",
     "pino-pretty": "6.0.0",
     "prettier": "2.3.2",
@@ -33,7 +34,6 @@
   },
   "dependencies": {
     "getenv": "1.0.0",
-    "jsonwebtoken": "8.5.1",
     "knex": "0.95.10",
     "koa": "2.13.1",
     "koa-pino-logger": "3.0.0",

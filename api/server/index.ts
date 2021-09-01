@@ -2,17 +2,16 @@ import Koa from 'koa'
 import errorHandler from './middleware/error-handler'
 import defaultHeaders from './middleware/default-headers'
 import requestLogger from './middleware/request-logger'
+import authenticate from './middleware/authenticate'
 
-import DBRouter from '@domains/database/routes'
-import HealthcheckRouter from '@domains/healthcheck/routes'
+import * as routes from '@domains/routes'
 
 const app = new Koa()
 
-app
-  .use(requestLogger)
-  .use(errorHandler)
-  .use(defaultHeaders)
-  .use(DBRouter.routes())
-  .use(HealthcheckRouter.routes())
+app.use(requestLogger).use(errorHandler).use(defaultHeaders).use(authenticate)
+
+for (const router of Object.values(routes)) {
+  app.use(router.routes())
+}
 
 export default app

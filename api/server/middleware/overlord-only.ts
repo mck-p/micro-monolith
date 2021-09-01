@@ -5,20 +5,15 @@ import * as Env from '@shared/env'
 import { NotAuthorized } from '@shared/errors'
 
 const middleware: Middleware = async (ctx, next) => {
-  if (ctx.headers.authorization) {
-    const token = ctx.headers.authorization.replace('Bearer ', '')
-
-    if (token) {
-      try {
-        await verify(token, Env.jwt_secret)
-        return next()
-      } catch (e) {
-        throw new NotAuthorized()
-      }
-    }
-  } else {
+  if (!ctx.user) {
     throw new NotAuthorized()
   }
+
+  if (!ctx.user.isOverlord) {
+    throw new NotAuthorized()
+  }
+
+  return next()
 }
 
 export default middleware
